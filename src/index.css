@@ -1,0 +1,204 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "tw-animate-css";
+
+/* 🎮 Paleta arcade profesional */
+:root {
+  --background: #0b0b0d;
+  --foreground: #e6e6ff;
+  --card: #11111f;
+  --card-foreground: #f0f0ff;
+  --primary: #00f0ff;
+  --primary-foreground: #0b0b0d;
+  --secondary: #ff3ec0;
+  --secondary-foreground: #0b0b0d;
+  --accent: #ff9800;
+  --accent-foreground: #0b0b0d;
+  --border: #222244;
+  --ring: #00f0ff;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #f0f0ff;
+  --card: #1a1a2a;
+  --primary: #00f0ff;
+  --primary-foreground: #0a0a0a;
+  --secondary: #ff3ec0;
+  --secondary-foreground: #0a0a0a;
+  --accent: #ff9800;
+  --accent-foreground: #0a0a0a;
+  --border: #222244;
+  --ring: #00f0ff;
+}
+
+/* Base */
+body {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  font-family: "Geist", "Roboto", sans-serif !important;
+  transition: background 0.4s, color 0.4s !important;
+  overflow-x: hidden;
+}
+
+/* Headers */
+h1,h2,h3,h4,h5,h6 {
+  color: var(--foreground) !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+}
+
+/* Botones neon arcade */
+button,input[type="button"],input[type="submit"],.btn {
+  position: relative !important;
+  background: linear-gradient(135deg, var(--primary), #00d0ff) !important;
+  color: var(--primary-foreground) !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: var(--radius) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  padding: 0.75rem 1.5rem !important;
+  box-shadow: 0 0 6px var(--primary), 0 0 12px var(--primary) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+}
+
+button::before,input[type="button"]::before,input[type="submit"]::before,.btn::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary)) !important;
+  opacity: 0 !important;
+  transform: rotate(45deg) !important;
+  transition: all 0.5s ease !important;
+}
+
+button:hover::before,input[type="button"]:hover::before,input[type="submit"]:hover::before,.btn:hover::before {
+  opacity: 0.25 !important;
+  transform: rotate(0deg) !important;
+}
+
+button:hover,input[type="button"]:hover,input[type="submit"]:hover,.btn:hover {
+  box-shadow: 0 0 12px var(--primary), 0 0 24px var(--secondary) !important;
+  transform: scale(1.05) !important;
+}
+
+button:active,input[type="button"]:active,input[type="submit"]:active,.btn:active {
+  transform: scale(0.97) !important;
+  box-shadow: 0 0 8px var(--secondary) !important;
+}
+
+/* Cards neon */
+.card {
+  background-color: var(--card) !important;
+  color: var(--card-foreground) !important;
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 1.25rem !important;
+  box-shadow: 0 0 6px var(--border), 0 0 12px var(--border) !important;
+  transition: all 0.4s ease !important;
+}
+
+.card:hover {
+  box-shadow: 0 0 12px var(--primary), 0 0 24px var(--secondary) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Inputs y selects neon */
+input,textarea,select {
+  background-color: var(--card) !important;
+  border: 2px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  color: var(--foreground) !important;
+  padding: 0.5rem !important;
+  outline: none !important;
+  box-shadow: 0 0 4px var(--ring) inset !important;
+  transition: all 0.3s ease !important;
+}
+
+input:focus,textarea:focus,select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 10px var(--primary) inset !important;
+}
+
+/* Navbar arcade */
+.navbar {
+  background-color: var(--card) !important;
+  border-bottom: 2px solid var(--border) !important;
+  padding: 0.75rem 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-shadow: 0 0 6px var(--primary), 0 0 12px var(--secondary) !important;
+}
+
+.navbar a {
+  color: var(--foreground) !important;
+  text-decoration: none !important;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.navbar a:hover {
+  color: var(--primary) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Badges */
+.badge {
+  background: var(--secondary) !important;
+  color: var(--secondary-foreground) !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: var(--radius) !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 0 8px var(--secondary) !important;
+}
+
+/* Alerts neon */
+.alert {
+  background: var(--accent) !important;
+  color: var(--accent-foreground) !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: var(--radius) !important;
+  border: 2px solid var(--accent) !important;
+  box-shadow: 0 0 8px var(--accent) !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+}
+
+/* Links neon */
+a {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+}
+
+a:hover {
+  color: var(--secondary) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Scrollbars neon */
+::-webkit-scrollbar {
+  width: 12px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary) !important;
+  border-radius: var(--radius) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary) !important;
+}
